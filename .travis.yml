@@ -27,6 +27,12 @@ jobs:
                    Pkg.clone(pwd(), "Turing");
                    Pkg.build("Turing");
                    Pkg.test("Turing"; coverage=true)'
+    - stage: test
+      os: windows
+      language: c
+      env: STAGE=test
+      script:
+        - ./test/windows-travis.sh
     - stage: numerical
       allow_failures: true
       julia: 1.0
